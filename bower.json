@@ -1,6 +1,7 @@
 {
   "name": "paint",
   "dependencies": {
-    "bootstrap": "~3.3.1"
+    "bootstrap": "~3.3.1",
+    "fontawesome": "~4.2.0"
   }
 }
