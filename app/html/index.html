@@ -8,18 +8,20 @@
   </head>
   <body>
     <div id="app-container" class="container">
-      <canvas id="canvas" width="700" height="400"></canvas>
-      <div id="controls">
+      <div class="col-lg-8 col-xs-12">
+        <canvas id="canvas" width="730" height="600"></canvas>
+      </div>
+      <div class="col-lg-4 col-md-5 col-sm-6 col-xs-12">
         <form class="form-horizontal">
           <div class="form-group">
-            <label for="size" class="control-label col-sm-1"><i class="fa fa-fw fa-paint-brush"></i></label>
-            <div class="col-sm-11">
+            <label for="size" class="control-label col-xs-1"><i class="fa fa-fw fa-paint-brush"></i></label>
+            <div class="col-xs-11">
               <input id="size" type="number" value="14" class="form-control">
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-sm-1"><i class="fa fa-fw fa-tint"></i></label>
-            <div class="btn-toolbar col-sm-11">
+            <label class="control-label col-xs-1"><i class="fa fa-fw fa-tint"></i></label>
+            <div class="btn-toolbar col-xs-11">
               <div class="btn-group">
                 <button id="black" type="button" class="btn btn-default color selected"></button>
                 <button id="white" type="button" class="btn btn-default color"></button>
@@ -41,8 +43,8 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-sm-1"><i class="fa fa-fw fa-trash"></i></label>
-            <div class="col-sm-11">
+            <label class="control-label col-xs-1"><i class="fa fa-fw fa-trash"></i></label>
+            <div class="col-xs-11">
               <button id="clear" type="button" class="btn btn-danger">Clear</button>
             </div>
           </div>
