@@ -18,7 +18,6 @@ updateBrush = ->
 onMouseDown = (event) ->
   ctx.beginPath()
   ctx.moveTo event.layerX, event.layerY
-  ctx.stroke()
 
   canvas.addEventListener 'mousemove', onMouseMove
   canvas.addEventListener 'mouseup', onMouseUp
