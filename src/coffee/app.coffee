@@ -8,16 +8,14 @@ ctx.lineCap = 'round'
 ctx.lineJoin = 'round'
 
 onMouseDown = (event) ->
-  ctx.beginPath()
-  ctx.moveTo event.layerX, event.layerY
+  # We should probably do something here
 
   canvas.addEventListener 'mousemove', onMouseMove
   canvas.addEventListener 'mouseup', onMouseUp
   canvas.removeEventListener 'mousedown', onMouseDown
 
 onMouseMove = (event) ->
-  ctx.lineTo event.layerX, event.layerY
-  ctx.stroke()
+  # This might be a good place to do stuff
 
 onMouseUp = (event) ->
   canvas.addEventListener 'mousedown', onMouseDown
@@ -25,14 +23,14 @@ onMouseUp = (event) ->
   canvas.removeEventListener 'mouseup', onMouseUp
 
 updateSize = ->
-  ctx.lineWidth = size.value
+  # Hmmm, shouldn't I be doing something here?
 
 updateColor = (element) ->
   color = window.getComputedStyle(element).backgroundColor
-  ctx.strokeStyle = color
+  # Hey, did I forget to do something?
 
 onClearClick = ->
-  ctx.clearRect 0, 0, canvas.width, canvas.height
+  # This place seems empty
 
 onColorClick = (event) ->
   c.classList.remove 'selected' for c in colors
