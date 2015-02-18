@@ -6,14 +6,6 @@ colors = document.getElementsByClassName 'color'
 ctx = canvas.getContext '2d'
 ctx.lineCap = 'round'
 ctx.lineJoin = 'round'
-ctx.fillStyle = 'white'
-
-updateBrush = ->
-  selected = document.getElementsByClassName('selected')[0]
-  color = window.getComputedStyle(selected).backgroundColor
-
-  ctx.lineWidth = size.value
-  ctx.strokeStyle = color
 
 onMouseDown = (event) ->
   ctx.beginPath()
@@ -32,17 +24,25 @@ onMouseUp = (event) ->
   canvas.removeEventListener 'mousemove', onMouseMove
   canvas.removeEventListener 'mouseup', onMouseUp
 
+updateSize = ->
+  ctx.lineWidth = size.value
+
+updateColor = (element) ->
+  color = window.getComputedStyle(element).backgroundColor
+  ctx.strokeStyle = color
+
+onClearClick = ->
+  ctx.clearRect 0, 0, canvas.width, canvas.height
+
 onColorClick = (event) ->
   c.classList.remove 'selected' for c in colors
   event.target.classList.add 'selected'
-  updateBrush()
+  updateColor event.target
 
-onClearClick = ->
-  ctx.fillRect 0, 0, canvas.width, canvas.height
-
-updateBrush()
+updateSize()
+updateColor document.getElementsByClassName('selected')[0]
 
 canvas.addEventListener 'mousedown', onMouseDown
-size.addEventListener 'change', updateBrush
+size.addEventListener 'change', updateSize
 clear.addEventListener 'click', onClearClick
 c.addEventListener 'click', onColorClick for c in colors
