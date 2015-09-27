@@ -20,6 +20,10 @@ paths =
     'src/coffee/app.coffee'
   ]
 
+printError = (err) ->
+  console.error err
+  @emit 'end'
+
 gulp.task 'coffee', ->
   b = browserify(
     entries: paths.entries
@@ -28,6 +32,7 @@ gulp.task 'coffee', ->
   )
 
   b.bundle()
+    .on('error', printError)
     .pipe(source paths.app)
     .pipe(buffer())
     .pipe(sourcemaps.init loadMaps: true)
@@ -40,6 +45,7 @@ gulp.task 'less', ->
   gulp.src(paths.less)
     .pipe(sourcemaps.init())
       .pipe(less())
+      .on('error', printError)
       .pipe(minifyCSS())
       .pipe(rename extname: '.min.css')
     .pipe(sourcemaps.write())
